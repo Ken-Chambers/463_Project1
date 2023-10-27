@@ -28,4 +28,14 @@
 
 
 ## Numerical Discussion
-### assdfgsd
+### After running 10 difference test with randomized data set which had 1000 different numbers in it which ranged from 1 to 10,000, a result was decided based on the results on the data. In the end, it seems that my hybridSort was on par with mergeSort for the most part. When this wasn't the case however, mergeSort was slightly faster when compared to hybridSort. As for insertionSort however, it got completely blown out of the water between hybridSort and mergeSort. Going back to hybridSort vs mergeSort however, one thing to note about hybridSort is that it always used less memory when compared to mergeSort. During all of the tests, hybridSort only used 176 bytes of data when compared to the the 560 bytes of data that mergeSort uses.
+
+## Conclusion
+### During all of the testing that I have ran in regards to the how well the 3 of these algorithms did when compared to each other and how we got to this point, one truth has been discovered: hybridSort ended being a great conbination of insertionSort and mergeSort. Although it didn't always beat out mergeSort, it took what makes both of these sorting algorithms great and combined them into a new sorting which has the speed and efficiency of mergeSort with the low memory costs of insertionSort along with how well it works with smaller data sets.
+
+
+
+
+
+
+
