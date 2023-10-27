@@ -50,10 +50,38 @@ def mergeSort(arr):
 
 
 def hybridSort(arr):
-    if len(arr) <= 5:
+    if len(arr) <= 16:
         return insertionSort(arr)
     else:
-        return mergeSort(arr)
+        mid = len(arr) // 2  
+        left_half = arr[:mid]  
+        right_half = arr[mid:]
+
+        mergeSort(left_half)  
+        mergeSort(right_half)  
+
+        i = j = k = 0
+
+        while i < len(left_half) and j < len(right_half):
+            if left_half[i] < right_half[j]:
+                arr[k] = left_half[i]
+                i += 1
+            else:
+                arr[k] = right_half[j]
+                j += 1
+            k += 1
+
+        while i < len(left_half):
+            arr[k] = left_half[i]
+            i += 1
+            k += 1
+
+        while j < len(right_half):
+            arr[k] = right_half[j]
+            j += 1
+            k += 1
+        if len(arr) <= 16:
+            insertionSort(arr)
 
 
 def randomLists(len, rangeStart, rangeEnd):
@@ -89,10 +117,10 @@ print("Memory size of Merge Sort ", mergeSize)
 
 hybridStart = time.time()
 hybridSort(ranLists.copy())
-hybrideEnd = time.time()
+hybridEnd = time.time()
 hybrid = hybridSort.__code__
 hybridSize = sys.getsizeof(hybrid)
 print("\nHybrid test: ")
 print("------------")
-print("Time taken to happen: ", hybrideEnd - hybridStart)
+print("Time taken to happen: ", hybridEnd - hybridStart)
 print("Memory size of Merge Sort ", hybridSize)
