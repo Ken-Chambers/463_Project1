@@ -88,20 +88,21 @@ def randomLists(len, rangeStart, rangeEnd):
     return [random.randint(rangeStart, rangeEnd) for i in range(len)]
 
 numTests = 10
-listLen = 1000
+listLen = 500
 
 for i in range(numTests):
     ranLists = randomLists(listLen, 1, 10000)
 
-insertStart = time.time()
+
+insertStart100 = time.time()
 insertionSort(ranLists.copy())
-insertEnd = time.time()
-insertion = insertionSort.__code__
-insertionSize = sys.getsizeof(insertion)
-print("Insertion sort:")
+insertEnd100 = time.time()
+insertion100 = insertionSort.__code__
+insertionSize100 = sys.getsizeof(insertion100)
+print("\nInsertion sort with 500 items:")
 print("------------")
-print("Time taken to happen: ", insertEnd - insertStart, "seconds.")
-print("Memory size of Insertion Sort ", insertionSize)
+print("Time taken to happen: ", insertEnd100 - insertStart100, "seconds.")
+print("Memory size of Insertion Sort ", insertionSize100)
 
 
 mergeStart = time.time()
@@ -109,7 +110,7 @@ mergeSort(ranLists.copy())
 mergeEnd = time.time()
 merge = mergeSort.__code__
 mergeSize = sys.getsizeof(merge)
-print("\nMerge sort:")
+print("\nMerge sort with 500 items:")
 print("------------")
 print("Time taken to happen: ", mergeEnd - mergeStart, "seconds.")
 print("Memory size of Merge Sort ", mergeSize)
@@ -120,7 +121,47 @@ hybridSort(ranLists.copy())
 hybridEnd = time.time()
 hybrid = hybridSort.__code__
 hybridSize = sys.getsizeof(hybrid)
-print("\nHybrid test: ")
+print("\nHybrid test with 500 items: ")
+print("------------")
+print("Time taken to happen: ", hybridEnd - hybridStart, "seconds.")
+print("Memory size of hybridSort ", hybridSize)
+
+print("\n---------------------")
+
+numTests1000 = 10
+listLen = 1000
+
+for i in range(numTests1000):
+    ranLists1000 = randomLists(listLen, 1, 10000)
+
+insertStart = time.time()
+insertionSort(ranLists1000.copy())
+insertEnd = time.time()
+insertion = insertionSort.__code__
+insertionSize = sys.getsizeof(insertion)
+print("\nInsertion sort with 1000 items:")
+print("------------")
+print("Time taken to happen: ", insertEnd - insertStart, "seconds.")
+print("Memory size of Insertion Sort ", insertionSize)
+
+
+mergeStart = time.time()
+mergeSort(ranLists1000.copy())
+mergeEnd = time.time()
+merge = mergeSort.__code__
+mergeSize = sys.getsizeof(merge)
+print("\nMerge sort with 1000 items:")
+print("------------")
+print("Time taken to happen: ", mergeEnd - mergeStart, "seconds.")
+print("Memory size of Merge Sort ", mergeSize)
+
+
+hybridStart = time.time()
+hybridSort(ranLists1000.copy())
+hybridEnd = time.time()
+hybrid = hybridSort.__code__
+hybridSize = sys.getsizeof(hybrid)
+print("\nHybrid test with 1000 items: ")
 print("------------")
 print("Time taken to happen: ", hybridEnd - hybridStart, "seconds.")
 print("Memory size of hybridSort ", hybridSize)
