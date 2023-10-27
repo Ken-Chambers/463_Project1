@@ -100,7 +100,7 @@ insertion = insertionSort.__code__
 insertionSize = sys.getsizeof(insertion)
 print("Insertion sort:")
 print("------------")
-print("Time taken to happen: ", insertEnd - insertStart)
+print("Time taken to happen: ", insertEnd - insertStart, "seconds.")
 print("Memory size of Insertion Sort ", insertionSize)
 
 
@@ -111,7 +111,7 @@ merge = mergeSort.__code__
 mergeSize = sys.getsizeof(merge)
 print("\nMerge sort:")
 print("------------")
-print("Time taken to happen: ", mergeEnd - mergeStart)
+print("Time taken to happen: ", mergeEnd - mergeStart, "seconds.")
 print("Memory size of Merge Sort ", mergeSize)
 
 
@@ -122,5 +122,5 @@ hybrid = hybridSort.__code__
 hybridSize = sys.getsizeof(hybrid)
 print("\nHybrid test: ")
 print("------------")
-print("Time taken to happen: ", hybridEnd - hybridStart)
+print("Time taken to happen: ", hybridEnd - hybridStart, "seconds.")
 print("Memory size of Merge Sort ", hybridSize)
