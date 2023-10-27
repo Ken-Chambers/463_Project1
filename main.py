@@ -49,40 +49,50 @@ def mergeSort(arr):
             k += 1
 
 
-def hybrideSort(arr):
+def hybridSort(arr):
     if len(arr) <= 5:
         return insertionSort(arr)
     else:
         return mergeSort(arr)
 
+
+def randomLists(len, rangeStart, rangeEnd):
+    return [random.randint(rangeStart, rangeEnd) for i in range(len)]
+
+numTests = 10
+listLen = 1000
+
+for i in range(numTests):
+    ranLists = randomLists(listLen, 1, 10000)
+
 insertStart = time.time()
-my_list = [12, 11, 13, 5, 6]
-insertionSort(my_list)
+insertionSort(ranLists.copy())
 insertEnd = time.time()
 insertion = insertionSort.__code__
 insertionSize = sys.getsizeof(insertion)
-print("Insertion sort:", my_list)
+print("Insertion sort:")
+print("------------")
 print("Time taken to happen: ", insertEnd - insertStart)
 print("Memory size of Insertion Sort ", insertionSize)
 
 
 mergeStart = time.time()
-myList = [12, 11, 13, 5, 6, 7]
-mergeSort(myList)
+mergeSort(ranLists.copy())
 mergeEnd = time.time()
 merge = mergeSort.__code__
 mergeSize = sys.getsizeof(merge)
-print("Sorted array is:", myList)
+print("\nMerge sort:")
+print("------------")
 print("Time taken to happen: ", mergeEnd - mergeStart)
 print("Memory size of Merge Sort ", mergeSize)
 
 
 hybridStart = time.time()
-hybridList = [12, 11, 13, 5, 6, 7, 8]
-hybrideSort(hybridList)
+hybridSort(ranLists.copy())
 hybrideEnd = time.time()
-hybrid = hybrideSort.__code__
+hybrid = hybridSort.__code__
 hybridSize = sys.getsizeof(hybrid)
-print("Hybrid test: ", hybridList)
+print("\nHybrid test: ")
+print("------------")
 print("Time taken to happen: ", hybrideEnd - hybridStart)
 print("Memory size of Merge Sort ", hybridSize)
